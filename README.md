@@ -7,6 +7,6 @@
 ## Factory Design
 
 
-## POM XML Settings 
+# POM XML Settings 
 
 <h1> Selenium ChromeDriver, Selenium Java, TestNG</h1>
