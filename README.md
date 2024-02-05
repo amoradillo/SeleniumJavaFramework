@@ -1,12 +1,12 @@
-## Selenium Framework Design
+# Selenium Framework Design
 
 
-## Page Object Model
+### Page Object Model
 
 
-## Factory Design
+### Factory Design
 
 
-# POM XML Settings 
+### POM XML Settings 
 
-# Selenium ChromeDriver, Selenium Java, TestNG
+### Selenium ChromeDriver, Selenium Java, TestNG
