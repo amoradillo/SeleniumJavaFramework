@@ -6,8 +6,10 @@ import ave4testing.pageobjects.LandingPage;
 
 public class SeleniumTesting {
     public static void main(String[] args) {
-         WebDriver driver = new ChromeDriver();
-         LandingPage landingPage = new LandingPage(driver);
+        WebDriver driver = new ChromeDriver();
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.goTo();
+        landingPage.loginApplication("ave4testing@gmail.com","Iamking@000");
 
 
     }
