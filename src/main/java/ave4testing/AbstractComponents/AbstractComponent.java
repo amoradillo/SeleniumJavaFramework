@@ -43,13 +43,7 @@ public class AbstractComponent
           return cartPage;
     }
 
-    public CartPage goToCartPage()
-    {
-//        driver.findElement(By.cssSelector("[routerlink*='cart']")).click();
-        cartHeader.click();
-        CartPage cartPage = new CartPage(driver);
-        return cartPage;
-    }
+
 
 
     public void waitForElementToDisappear(WebElement ele) throws InterruptedException {
