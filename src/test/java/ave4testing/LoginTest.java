@@ -12,5 +12,7 @@ public class LoginTest {
         landingPage.loginApplication("ave4testing@gmail.com","Iamking@000");
 
 
+
+
     }
 }
