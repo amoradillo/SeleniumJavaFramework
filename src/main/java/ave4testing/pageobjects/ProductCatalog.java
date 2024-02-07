@@ -10,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class ProductCatalog extends AbstractComponent {
     WebDriver driver;
@@ -23,31 +24,39 @@ public class ProductCatalog extends AbstractComponent {
 
 
     // List<WebElemet> products = driver.findElements(By.cssSelector(".mb-3"));
-    @FindBy(css = "mb-3")
-    ArrayList<WebElement> products;
+    @FindBy(css = ".mb-3")
+    List<WebElement> products;
+
+    @FindBy(css = ".ng-animating")
+    WebElement spinner;
 
     By productsBy = By.cssSelector(".mb-3");
     By addToCart = By.cssSelector(".card-body button:last-of-type");
 
 
-    public ArrayList<WebElement> getProductList()
-    {
+    public List<WebElement> getProductList() {
         waitForElementToAppear(productsBy);
         return products;
     }
 
     public WebElement getProductByName(String productName)
     {
-        WebElement prod = getProductList().stream().filter(product->
+        WebElement prod =	getProductList().stream().filter(product->
                 product.findElement(By.cssSelector("b")).getText().equals(productName)).findFirst().orElse(null);
         return prod;
     }
 
-    public void addProductToCard(String productName)
+    public void addProductToCart(String productName)
     {
-         WebElement prod = getProductByName(productName);
-         prod.findElement(addToCart).click();
+        WebElement prod = getProductByName(productName);
+        prod.findElement(addToCart).click();
+//        waitForElementToAppear(toastMessage);
+//        waitForElementToDisappear(spinner);
+
+
     }
+
+
 
 }
 
