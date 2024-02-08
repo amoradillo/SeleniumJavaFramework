@@ -24,7 +24,6 @@ public class SubmitOrderTest {
          List<WebElement> product = productCatalog.getProductList();
          productCatalog.addProductToCart(productName);
          CartPage cartPage = productCatalog.goToCartPage();
-
          Boolean match = cartPage.VerifyProductDisplay(productName);
          Assert.assertTrue(match);
 

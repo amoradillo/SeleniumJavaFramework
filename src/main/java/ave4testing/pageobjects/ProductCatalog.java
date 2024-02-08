@@ -32,6 +32,7 @@ public class ProductCatalog extends AbstractComponent {
 
     By productsBy = By.cssSelector(".mb-3");
     By addToCart = By.cssSelector(".card-body button:last-of-type");
+    By toastMessage = By.cssSelector("#toast-container");
 
 
     public List<WebElement> getProductList() {
@@ -46,12 +47,12 @@ public class ProductCatalog extends AbstractComponent {
         return prod;
     }
 
-    public void addProductToCart(String productName)
+    public void addProductToCart(String productName) throws  InterruptedException
     {
         WebElement prod = getProductByName(productName);
         prod.findElement(addToCart).click();
-//        waitForElementToAppear(toastMessage);
-//        waitForElementToDisappear(spinner);
+        waitForElementToAppear(toastMessage);
+        waitForElementToDisappear(spinner);
 
 
     }
