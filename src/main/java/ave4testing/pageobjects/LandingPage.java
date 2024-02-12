@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LandingPage extends AbstractComponent
    {
-       WebDriver driver;
+       private WebDriver driver;
 
        public LandingPage(WebDriver driver)
        {
@@ -45,6 +45,7 @@ public class LandingPage extends AbstractComponent
 
        public void goTo()
        {
+
            driver.get("https://rahulshettyacademy.com/client");
        }
 

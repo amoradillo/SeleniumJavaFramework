@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CheckoutPage extends AbstractComponent {
 
-    WebDriver driver;
+    private WebDriver driver;
 
     public CheckoutPage(WebDriver driver) {
         super(driver);
@@ -20,20 +20,24 @@ public class CheckoutPage extends AbstractComponent {
     }
 
 
-    @FindBy(css = ".action_submit")
+    @FindBy(css = ".btnn.action__submit.ng-star-inserted")
     WebElement submit;
     @FindBy(css = "[placeholder='Select Country']")
     WebElement country;
 
-    @FindBy(xpath = "//button[contains(@class,'ta-item'])[2]")
-    WebElement selectCountry;
+     @FindBy(xpath = "//span[@class='ng-star-inserted']")
+     WebElement selectCountry;
+
+
+
+    By results = By.cssSelector(".ta-results");
 
 
    public void SelectCountry(String countryName)
    {
        Actions a = new Actions(driver);
        a.sendKeys(country, countryName).build().perform();
-       waitForElementToAppear(By.cssSelector(".ta-results"));
+       waitForElementToAppear(results);
        selectCountry.click();
    }
 

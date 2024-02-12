@@ -1,8 +1,6 @@
-package ave4testing;
+package ave4testing.tests;
 
-import ave4testing.pageobjects.CartPage;
-import ave4testing.pageobjects.LandingPage;
-import ave4testing.pageobjects.ProductCatalog;
+import ave4testing.pageobjects.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,21 +22,15 @@ public class SubmitOrderTest {
          List<WebElement> product = productCatalog.getProductList();
          productCatalog.addProductToCart(productName);
          CartPage cartPage = productCatalog.goToCartPage();
+
          Boolean match = cartPage.VerifyProductDisplay(productName);
          Assert.assertTrue(match);
-
-
-//         driver.findElement(By.cssSelector(".totalRow button")).click();
-//
-//         Actions a = new Actions(driver);
-//         a.sendKeys(driver.findElement(By.cssSelector("[placeholder='Select Country']")), "india").build().perform();
-//
-//         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
-//
-//         driver.findElement(By.xpath("(//button[contains(@class,'ta-item')])[2]")).click();
-//         driver.findElement(By.cssSelector(".action__submit")).click();
-
-
+         CheckoutPage checkoutPage = cartPage.goToCheckout();
+         checkoutPage.SelectCountry("Philippines");
+         ConfirmationPage confirmationPage = checkoutPage.submitOrder();
+         String confirmMessage = confirmationPage.verifyConfirmationMessage();
+         Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
+         driver.close();
 
 
 

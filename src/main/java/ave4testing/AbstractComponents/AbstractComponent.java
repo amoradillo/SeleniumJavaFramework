@@ -14,13 +14,23 @@ import java.time.Duration;
 public class AbstractComponent
 {
 
-    WebDriver driver;
-    public AbstractComponent(WebDriver driver)
-    {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    private WebDriver driver;
 
+    public AbstractComponent(WebDriver driver) {
+        this.driver = driver;
     }
+
+    public AbstractComponent initializeLoginPage() {
+        return PageFactory.initElements(driver, AbstractComponent.class);
+    }
+
+
+//    public AbstractComponent(WebDriver driver)
+//    {
+//        this.driver = driver;
+//        PageFactory.initElements(driver, this);
+//
+//    }
 
     // Links Cart Header
     @FindBy(css = "[routerlink*='cart']" )
