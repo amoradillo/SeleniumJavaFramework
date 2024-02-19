@@ -37,6 +37,11 @@
       <artifactId>selenium-chrome-driver</artifactId>
       <version>4.17.0</version>
     </dependency>
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-common</artifactId>
+      <version>4.1.92.Final</version>
+    </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.testng/testng -->
     <dependency>

@@ -1,5 +1,6 @@
 package ave4testing.TestComponents;
 
+import ave4testing.pageobjects.LandingPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,10 +17,8 @@ public class BaseTest {
     public WebDriver initializeDriver() throws IOException {
        //properties class
 
-
-
         Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"src/main/java/ave4testing/resources/GlobaData.properties");
+        FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"src//main//java//ave4testing//resources//GlobaData.properties");
         prop.load(fis);
         String browserName = prop.getProperty("browser");
 
@@ -43,9 +42,12 @@ public class BaseTest {
 
     }
 
-    public void launchApplication()
+    public LandingPage launchApplication() throws IOException
     {
-        initializeDriver()
+         driver = initializeDriver();
+         LandingPage landingPage = new LandingPage(driver);
+         landingPage.goTo();
+         return landingPage;
     }
 
 
