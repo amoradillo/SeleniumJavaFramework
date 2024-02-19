@@ -2,7 +2,6 @@ package ave4testing.pageobjects;
 
 
 import ave4testing.AbstractComponents.AbstractComponent;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,6 +31,8 @@ public class LandingPage extends AbstractComponent
        @FindBy(id="login")
        WebElement submit;
 
+       @FindBy(css="[class*='flyInOut']")
+       WebElement errorMessage;
 
        public ProductCatalog loginApplication(String email, String password)
        {
@@ -42,10 +43,16 @@ public class LandingPage extends AbstractComponent
            return productCatalog;
        }
 
+       public String getErrorMessage()
+       {
+           waitForWebElementToAppear(errorMessage);
+           return errorMessage.getText();
+
+       }
+
 
        public void goTo()
        {
-
            driver.get("https://rahulshettyacademy.com/client");
        }
 

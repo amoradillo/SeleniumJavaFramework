@@ -47,6 +47,14 @@ public class AbstractComponent
 
     }
 
+    public void waitForWebElementToAppear(WebElement findBy)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        // wait.until(ExpectedConditions.visibilityOfElementLocated(
+        wait.until(ExpectedConditions.visibilityOf(findBy));
+
+    }
+
     public CartPage goToCartPage()
     {
 //        driver.findElement(By.cssSelector("[routerlink*='cart']")).click();
