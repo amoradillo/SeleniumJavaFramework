@@ -5,6 +5,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,21 +19,20 @@ public class BaseTest {
        //properties class
 
         Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"src//main//java//ave4testing//resources//GlobaData.properties");
+        FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"/src//main//java//ave4testing//resources//GlobalData.properties");
         prop.load(fis);
         String browserName = prop.getProperty("browser");
 
         if(browserName.equalsIgnoreCase("chrome"))
         {
-            WebDriverManager.chromedriver().setup();
-            WebDriver driver = new ChromeDriver();
+            this.driver = new ChromeDriver();
 
         } else if (browserName.equalsIgnoreCase("firefox"))
         {
-            WebDriver driver = new ChromeDriver();
+           this.driver  = new FirefoxDriver();
         } else if (browserName.equalsIgnoreCase("edge"))
         {
-            WebDriver driver = new EdgeDriver();
+            this.driver  = new EdgeDriver();
         }
 
 
@@ -53,6 +53,11 @@ public class BaseTest {
          LandingPage landingPage = new LandingPage(driver);
          landingPage.goTo();
          return landingPage;
+    }
+
+    public void tearDown()
+    {
+        driver.close();
     }
 
 

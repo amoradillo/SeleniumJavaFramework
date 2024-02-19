@@ -16,11 +16,13 @@ public class AbstractComponent
 
     private WebDriver driver;
 
-    public AbstractComponent(WebDriver driver) {
+    public AbstractComponent(WebDriver driver)
+    {
         this.driver = driver;
     }
 
-    public AbstractComponent initializeLoginPage() {
+    public AbstractComponent initializeLoginPage()
+    {
         return PageFactory.initElements(driver, AbstractComponent.class);
     }
 

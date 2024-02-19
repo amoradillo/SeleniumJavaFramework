@@ -29,11 +29,11 @@ public class SubmitOrderTest extends BaseTest {
           Boolean match = cartPage.VerifyProductDisplay(productName);
           Assert.assertTrue(match);
           CheckoutPage checkoutPage = cartPage.goToCheckout();
-          checkoutPage.SelectCountry("Philippines");
+          checkoutPage.SelectCountry("Philippines");,
           ConfirmationPage confirmationPage = checkoutPage.submitOrder();
           String confirmMessage = confirmationPage.verifyConfirmationMessage();
           Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
-          driver.close();
+          tearDown();
 
      }
 
