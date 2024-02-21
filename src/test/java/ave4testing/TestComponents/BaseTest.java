@@ -22,9 +22,7 @@ public class BaseTest {
     public LandingPage landingPage;
 
     public WebDriver initializeDriver() throws IOException {
-        //properties class
 
-        // properties class
 
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir")
