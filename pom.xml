@@ -49,7 +49,7 @@
       <artifactId>testng</artifactId>
       <version>7.9.0</version>
       <scope>test</scope>
-    </dependency>v
+    </dependency>
     <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
