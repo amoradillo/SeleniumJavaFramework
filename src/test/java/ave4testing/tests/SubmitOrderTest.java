@@ -53,49 +53,31 @@ public class SubmitOrderTest extends BaseTest
     }
 
     @DataProvider
-    public Object [] [] getData()
-    {
-        HashMap<String, String> map = new HashMap<String, String>();
-        map.put("email", "anshika@gmail.com");
-        map.put("password", "Iamking@000");
-        map.put("product", "ZARA COAT 3");
-
-        HashMap<String, String> map1 = new HashMap<String, String>();
-        map1.put("email", "shetty@gmail.com");
-        map1.put("password", "Iamking@000");
-        map1.put("product", "ADIDAS ORIGINAL");
-        return new Object[][]  {{map}, {map1} };
+    public Object [] [] getData() throws IOException {
+        List<HashMap<String,String>> data = getJsonDataToMap(System.getProperty("user.dir")+"//src//test//java//ave4testing//data//PurchaseOrder.json");
+        return new Object[][]  {{data.get(0)}, {data.get(1) } };
 
     }
+
+
+//    @DataProvider
+//    public Object [] [] getData()
+//    {
+//        HashMap<String, String> map = new HashMap<String, String>();
+//        map.put("email", "anshika@gmail.com");
+//        map.put("password", "Iamking@000");
+//        map.put("product", "ZARA COAT 3");
+//
+//        HashMap<String, String> map1 = new HashMap<String, String>();
+//        map1.put("email", "shetty@gmail.com");
+//        map1.put("password", "Iamking@000");
+//        map1.put("product", "ADIDAS ORIGINAL");
+//        return new Object[][]  {{map}, {map1} };
+//
+//    }
 
 
 
 }
 
 
-//public class SubmitOrderTest {
-//    public static void main(String[] args) throws InterruptedException {
-//         String productName = "ZARA COAT 3";
-//         WebDriver driver = new ChromeDriver();
-//         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-//         driver.manage().window().maximize();
-//         LandingPage landingPage = new LandingPage(driver);
-//         landingPage.goTo();
-//         ProductCatalog productCatalog = landingPage.loginApplication("ave4testing@gmail.com","Iamking@000");
-//         List<WebElement> product = productCatalog.getProductList();
-//         productCatalog.addProductToCart(productName);
-//         CartPage cartPage = productCatalog.goToCartPage();
-//
-//         Boolean match = cartPage.VerifyProductDisplay(productName);
-//         Assert.assertTrue(match);
-//         CheckoutPage checkoutPage = cartPage.goToCheckout();
-//         checkoutPage.SelectCountry("Philippines");
-//         ConfirmationPage confirmationPage = checkoutPage.submitOrder();
-//         String confirmMessage = confirmationPage.verifyConfirmationMessage();
-//         Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
-//         driver.close();
-//
-//
-//
-//    }
-//}
