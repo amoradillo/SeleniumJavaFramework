@@ -1,6 +1,7 @@
 package ave4testing.AbstractComponents;
 
 import ave4testing.pageobjects.CartPage;
+import ave4testing.pageobjects.OrderPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,6 +36,9 @@ public class AbstractComponent {
     @FindBy(css = "[routerlink*='cart']")
     WebElement cartHeader;
 
+    @FindBy(css = "[routerlink*='myorders']")
+    WebElement orderHeader;
+
 
     public void waitForElementToAppear(By findBy) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
@@ -55,6 +59,13 @@ public class AbstractComponent {
         cartHeader.click();
         CartPage cartPage = new CartPage(driver);
         return cartPage;
+    }
+
+    public OrderPage goToOrderPage() {
+//        driver.findElement(By.cssSelector("[routerlink*='cart']")).click();
+        orderHeader.click();
+        OrderPage orderPage = new OrderPage(driver);
+        return orderPage;
     }
 
 

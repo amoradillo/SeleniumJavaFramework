@@ -17,9 +17,11 @@ import java.util.List;
 
 public class SubmitOrderTest extends BaseTest {
 
+     String productName = "ZARA COAT 3";
+
      @Test
      public void submitOrder() throws IOException, InterruptedException {
-          String productName = "ZARA COAT 3";
+
           ProductCatalog productCatalog = landingPage.loginApplication("ave4testing@gmail.com","Iamking@000");
           List<WebElement> product = productCatalog.getProductList();
           productCatalog.addProductToCart(productName);
@@ -32,6 +34,18 @@ public class SubmitOrderTest extends BaseTest {
           ConfirmationPage confirmationPage = checkoutPage.submitOrder();
           String confirmMessage = confirmationPage.verifyConfirmationMessage();
           Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
+          //orders
+
+
+     }
+
+
+     @Test(dependsOnMethods = {"submitOrder"})
+     public void OrderHistoryTest()
+     {
+          ProductCatalog productCatalog = landingPage.loginApplication("ave4testing@gmail.com","Iamking@000");
+          OrderPage ordersPage = productCatalog.goToOrderPage();
+          Assert.assertTrue(ordersPage.VerifyOrderDisplay(productName));
 
      }
 
