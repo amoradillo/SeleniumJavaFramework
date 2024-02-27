@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ErrorValidationTest extends BaseTest {
 
-     @Test
+     @Test(groups = {"ErrorHandling"})
      public void LoginErrorValidation() throws IOException, InterruptedException
      {
           String productName = "ZARA COAT 3";
