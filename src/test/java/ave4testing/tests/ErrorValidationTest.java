@@ -1,6 +1,7 @@
 package ave4testing.tests;
 
 import ave4testing.TestComponents.BaseTest;
+import ave4testing.TestComponents.Retry;
 import ave4testing.pageobjects.CartPage;
 import ave4testing.pageobjects.ProductCatalog;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class ErrorValidationTest extends BaseTest {
 
-     @Test(groups = {"ErrorHandling"})
+     @Test(groups = {"ErrorHandling"},retryAnalyzer= Retry.class)
      public void LoginErrorValidation() throws IOException, InterruptedException
      {
           String productName = "ZARA COAT 3";
