@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite parallel = "tests" name="Suite">
-    <test name="Submit Order Test">
+
+    <listeners>
+        <listener class-name="ave4testing.TestComponents.Listeners"/>
+
+    </listeners>
+
+    <test thread-count="5" name="Submit Order Test">
         <classes>
             <class name="ave4testing.tests.SubmitOrderTest"/>
         </classes>
     </test>
 
-    <test  name="Error Validation">
+    <test thread-count="5" name="Error Validation Test">
         <classes>
             <class name="ave4testing.tests.ErrorValidationTest"/>
         </classes>
