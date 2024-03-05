@@ -2,6 +2,7 @@ package ave4testing.pageobjects;
 
 
 import ave4testing.AbstractComponents.AbstractComponent;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,8 @@ public class CartPage extends AbstractComponent {
     @FindBy(css = ".cartSection h3")
     private List<WebElement> cartProducts;
 
+
+
     public CartPage(WebDriver driver) {
         super(driver);
         // initialization
@@ -33,6 +36,8 @@ public class CartPage extends AbstractComponent {
     }
 
     public CheckoutPage goToCheckout() {
+        waitForWebElementToAppear(checkoutEle);
+
         checkoutEle.click();
         return new CheckoutPage(driver);
 
