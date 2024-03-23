@@ -21,16 +21,16 @@ public class CheckoutPage extends AbstractComponent {
 
 
     @FindBy(css = ".btnn.action__submit.ng-star-inserted")
-    WebElement submit;
+    private WebElement submit;
     @FindBy(css = "[placeholder='Select Country']")
-    WebElement country;
+    private WebElement country;
 
      @FindBy(xpath = "//span[@class='ng-star-inserted']")
-     WebElement selectCountry;
+     private  WebElement selectCountry;
 
 
 
-    By results = By.cssSelector(".ta-results");
+    private By results = By.cssSelector(".ta-results");
 
 
    public void SelectCountry(String countryName)

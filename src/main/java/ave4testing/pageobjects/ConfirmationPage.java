@@ -20,11 +20,10 @@ public class ConfirmationPage extends AbstractComponent {
 
     }
 
-
-
-
     public String verifyConfirmationMessage()
     {
+        CheckoutPage cp = new CheckoutPage(driver);
+        cp.submitOrder();
         return confirmationMessage.getText();
 
     }
